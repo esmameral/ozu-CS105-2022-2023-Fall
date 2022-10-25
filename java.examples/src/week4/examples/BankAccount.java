@@ -1,10 +1,57 @@
 package week4.examples;
 
+import java.util.Objects;
+
 public class BankAccount {
 
 	private String owner;
-	private int accountNumber = 123;
+	private int accountNumber;// = 123;
 	private double balance;// = 100; 
+    
+	
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(accountNumber);
+	}
+
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		BankAccount other = (BankAccount) obj;
+		return accountNumber == other.accountNumber;
+	}
+
+
+
+	public BankAccount() {
+		this.accountNumber=(int)(Math.random()*9000000)+1000000;
+	}
+
+
+
+	public BankAccount(String owner) {
+		this();
+		this.owner = owner;
+	}
+
+
+
+	public BankAccount(String owner, int accountNumber) {
+		this.owner = owner;
+		//setOwner(owner);
+		this.accountNumber = accountNumber;
+		//setAccountNumber(accountNumber);
+	}
+	
+	
 
 	public double computeInterestAmount(double rate, int duration) {
 		// double interestAmount = getBalance()*duration*rate/1200;
