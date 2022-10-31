@@ -1,4 +1,4 @@
-package week4.examples;
+package week4and5.examples;
 
 public class TestBankAccount {
 

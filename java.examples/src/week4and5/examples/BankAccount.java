@@ -1,4 +1,4 @@
-package week4.examples;
+package week4and5.examples;
 
 import java.util.Objects;
 
@@ -8,7 +8,6 @@ public class BankAccount {
 	private int accountNumber;// = 123;
 	private double balance;// = 100; 
     
-	
 
 	@Override
 	public int hashCode() {

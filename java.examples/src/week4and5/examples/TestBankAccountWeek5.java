@@ -1,4 +1,4 @@
-package week4.examples;
+package week4and5.examples;
 
 public class TestBankAccountWeek5 {
 
@@ -30,3 +30,5 @@ public class TestBankAccountWeek5 {
     }
 
 }
+
+
