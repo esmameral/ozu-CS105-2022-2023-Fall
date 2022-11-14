@@ -8,8 +8,7 @@ public class BankAccount {
 	private double balance;// = 100; 
  
 
-	public BankAccount() {
-		
+	public BankAccount() {	
 		this.accountNumber=(int)(Math.random()*9000000)+1000000;
 	}
 
@@ -101,24 +100,7 @@ public class BankAccount {
 
 
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		BankAccount other = (BankAccount) obj;
-		return accountNumber == other.accountNumber;
-	}
 
-
-
-	@Override
-	public String toString() {
-		return "owner=" + owner + ", accountNumber=" + accountNumber + ", balance=" + balance ;
-	}
 
 	
 	
