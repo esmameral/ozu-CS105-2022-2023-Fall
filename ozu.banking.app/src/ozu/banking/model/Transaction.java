@@ -6,6 +6,8 @@ public class Transaction {
 	private int id;
 	private Date date;
 	private double amount;
+	private String placeOfOperation;
+	
 	
 	public Transaction(double amount) {
 		this();
@@ -18,6 +20,7 @@ public class Transaction {
 		super();
 		this.id=(int)(Math.random()*9000000)+1000000;
 		this.date=new Date();
+		
 	}
 
 
@@ -38,6 +41,16 @@ public class Transaction {
 	}
 	private void setAmount(double amount) {
 		this.amount = amount;
+	}
+
+
+	public String getPlaceOfOperation() {
+		return placeOfOperation;
+	}
+
+
+	public void setPlaceOfOperation(String placeOfOperation) {
+		this.placeOfOperation = placeOfOperation;
 	}
 	
 }
