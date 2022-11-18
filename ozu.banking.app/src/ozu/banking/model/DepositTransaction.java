@@ -1,9 +1,9 @@
 package ozu.banking.model;
 
-public class DebitTransaction extends Transaction {
+public class DepositTransaction extends Transaction {
 
-	public DebitTransaction(double d) {
-		super();
+	public DepositTransaction(double amount) {
+		super(amount);
 	}
 
 }

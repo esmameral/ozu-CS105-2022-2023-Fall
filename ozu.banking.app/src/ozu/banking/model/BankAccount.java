@@ -94,6 +94,12 @@ public class BankAccount {
 		return Objects.hash(accountNumber);
 	}
 
+	public void post(Transaction t) {
+		
+		
+	}
+
+	
 
 
 

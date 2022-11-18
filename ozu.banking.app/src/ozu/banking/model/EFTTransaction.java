@@ -1,22 +1,16 @@
 package ozu.banking.model;
 
 public class EFTTransaction extends WithdrawTransaction {
-	private String iban;
+	private String receiverIBAN;
 	private double comRate;
 
 	public EFTTransaction(double balance, String iban, double rate) {
 		super(balance);
-		this.iban=iban;
+		this.setReceiverIBAN(iban);
 		this.comRate=rate;	
 	}
 	
-	public String getIban() {
-		return iban;
-	}
-
-	public void setIban(String iban) {
-		this.iban = iban;
-	}
+	
 
 	public double getComRate() {
 		return comRate;
@@ -24,6 +18,26 @@ public class EFTTransaction extends WithdrawTransaction {
 
 	public void setComRate(double comRate) {
 		this.comRate = comRate;
+	}
+
+
+
+	public String getReceiverIBAN() {
+		return receiverIBAN;
+	}
+
+
+
+	public void setReceiverIBAN(String receiverIBAN) {
+		this.receiverIBAN = receiverIBAN;
+	}
+
+
+
+	@Override
+	public String toString() {
+		
+		return super.toString()+" receiverIBAN=" + receiverIBAN + ", comRate=" + comRate ;
 	}
 
 }
