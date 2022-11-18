@@ -95,7 +95,7 @@ public class BankAccount {
 	}
 
 	public void post(Transaction t) {
-		
+		t.updateAccount(this);
 		
 	}
 

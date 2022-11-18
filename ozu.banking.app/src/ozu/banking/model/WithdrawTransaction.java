@@ -8,4 +8,10 @@ public class WithdrawTransaction extends Transaction {
 		super(d);
 	}
 
+	@Override
+	public void updateAccount(BankAccount acc) {
+		acc.withdraw(getAmount());
+		
+	}
+
 }

@@ -12,13 +12,11 @@ public class TestTransactions {
 
 	public static void main(String[] args) {
 		Transaction eft = new EFTTransaction(200.0, "aaa", 0.04);
-		Transaction deposit = new DepositTransaction(100.0);
+		Transaction deposit = new DepositTransaction(10000.0);
 		Transaction with = new WithdrawTransaction(200.0);
 		Transaction check= new CheckTransaction(50.0,"C001");
 		Transaction s = new SalaryPaymentTransaction(20000.0);
-		
-		
-		
+
 		Transaction[] list=new Transaction[5];
 		list[0]=eft;
 		list[1]=deposit;
@@ -29,10 +27,15 @@ public class TestTransactions {
 	   
 		
 		BankAccount acc=new BankAccount("Yasemin");
-		
-		acc.post(eft);
 		acc.post(deposit);
+		
+		System.out.println(acc.getBalance());
+		acc.post(eft);
+		
+		System.out.println(acc.getBalance());
+		
 		acc.post(with);
+		System.out.println(acc.getBalance());
 		
 	
 		

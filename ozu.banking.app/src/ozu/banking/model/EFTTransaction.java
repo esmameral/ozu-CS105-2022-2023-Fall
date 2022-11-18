@@ -40,4 +40,13 @@ public class EFTTransaction extends WithdrawTransaction {
 		return super.toString()+" receiverIBAN=" + receiverIBAN + ", comRate=" + comRate ;
 	}
 
+
+
+	@Override
+	public void updateAccount(BankAccount acc) {
+		
+		acc.withdraw(getAmount()+getAmount()*comRate);
+		
+	}
+
 }
