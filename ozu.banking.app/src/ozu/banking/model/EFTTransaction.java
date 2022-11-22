@@ -45,7 +45,7 @@ public class EFTTransaction extends WithdrawTransaction {
 	@Override
 	public void updateAccount(BankAccount acc) {
 		
-		acc.withdraw(getAmount()+getAmount()*comRate);
+		acc.decreaseBalance(getAmount()+getAmount()*comRate);
 		
 	}
 

@@ -5,11 +5,10 @@ import java.util.Objects;
 public class BankAccount {
 	private String owner;
 	private int accountNumber;// = 123;
-	private double balance;// = 100; 
- 
+	private double balance;// = 100;
 
-	public BankAccount() {	
-		this.accountNumber=(int)(Math.random()*9000000)+1000000;
+	public BankAccount() {
+		this.accountNumber = (int) (Math.random() * 9000000) + 1000000;
 	}
 
 	public BankAccount(String owner) {
@@ -17,19 +16,15 @@ public class BankAccount {
 		this.owner = owner;
 	}
 
-
-
 	public BankAccount(String owner, int accountNumber) {
 		this.owner = owner;
-		//setOwner(owner);
+		// setOwner(owner);
 		this.accountNumber = accountNumber;
-		//setAccountNumber(accountNumber);
+		// setAccountNumber(accountNumber);
 	}
-	
-	
 
 	public double computeInterestAmount(int duration) {
-		
+
 		double interestAmount = balance * duration * DailyRates.getInterestRate() / 1200;
 		return interestAmount;
 	}
@@ -71,22 +66,22 @@ public class BankAccount {
 		this.balance = balance;
 	}
 
-	public void withdraw(double amount) {
-		if(amount<=balance) {
-			balance=balance-amount;
-		}else {
+	public void decreaseBalance(double amount) {
+		if (amount <= balance) {
+			balance = balance - amount;
+		} else {
 			System.out.println("Insufficient balance !!!");
 		}
-		
-		//Others ways:
-		//setBalance(balance-amount);
-		//setBalance(getBalance()-amount);
-		
+
+		// Others ways:
+		// setBalance(balance-amount);
+		// setBalance(getBalance()-amount);
+
 	}
 
-	public void deposit(double amount) {
-		balance=balance+amount;
-		
+	public void increaseBalance(double amount) {
+		balance = balance + amount;
+
 	}
 
 	@Override
@@ -96,19 +91,7 @@ public class BankAccount {
 
 	public void post(Transaction t) {
 		t.updateAccount(this);
-		
+
 	}
 
-	
-
-
-
-	
-
-
-
-
-
-	
-	
 }

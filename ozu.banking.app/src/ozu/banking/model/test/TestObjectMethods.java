@@ -20,7 +20,7 @@ public class TestObjectMethods {
 		System.out.println(Integer.MAX_VALUE);
 		System.out.println(Long.MAX_VALUE);
 		
-		Transaction t=new Transaction(100);
+		
 		
 	}
 

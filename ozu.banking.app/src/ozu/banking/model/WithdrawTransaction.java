@@ -10,8 +10,10 @@ public class WithdrawTransaction extends Transaction {
 
 	@Override
 	public void updateAccount(BankAccount acc) {
-		acc.withdraw(getAmount());
+		acc.decreaseBalance(getAmount());
+		
 		
 	}
+	
 
 }

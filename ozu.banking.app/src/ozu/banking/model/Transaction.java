@@ -2,15 +2,13 @@ package ozu.banking.model;
 
 import java.util.Date;
 
-public class Transaction {
+public abstract class Transaction {
 	private int id;
 	private Date date;
 	private double amount;
 	private String placeOfOperation;
 	
-	public void updateAccount(BankAccount acc) {
-		System.out.println("Transaction updateAccount");
-	}
+	public abstract void updateAccount(BankAccount acc);
 	
 	
 	public Transaction(double amount) {
