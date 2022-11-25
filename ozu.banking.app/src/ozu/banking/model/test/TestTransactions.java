@@ -11,6 +11,7 @@ import ozu.banking.model.WithdrawTransaction;
 public class TestTransactions {
 
 	public static void main(String[] args) {
+	
 		Transaction eft = new EFTTransaction(200.0, "aaa", 0.04);
 		Transaction deposit = new DepositTransaction(10000.0);
 		Transaction with = new WithdrawTransaction(200.0);

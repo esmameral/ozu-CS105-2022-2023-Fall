@@ -9,7 +9,10 @@ public class TestShapes {
 		
 		System.out.println(c);
 		System.out.println(rec);
+	
 	}
+
+	
 
 
 

@@ -4,8 +4,8 @@ public class WithdrawTransaction extends Transaction {
 
 	
 
-	public WithdrawTransaction(double d) {
-		super(d);
+	public WithdrawTransaction(double amount) {
+		super(amount);
 	}
 
 	@Override

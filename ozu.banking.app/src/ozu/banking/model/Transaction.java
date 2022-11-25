@@ -2,7 +2,7 @@ package ozu.banking.model;
 
 import java.util.Date;
 
-public abstract class Transaction {
+public abstract class Transaction implements BankAccountUpdater{
 	private int id;
 	private Date date;
 	private double amount;
