@@ -2,8 +2,11 @@ package ozu.banking.model.test;
 
 import ozu.banking.model.BankAccount;
 import ozu.banking.model.CheckTransaction;
+import ozu.banking.model.ContactInfo;
+import ozu.banking.model.ContactInfoChange;
 import ozu.banking.model.DepositTransaction;
 import ozu.banking.model.EFTTransaction;
+import ozu.banking.model.OwnerChange;
 import ozu.banking.model.SalaryPaymentTransaction;
 import ozu.banking.model.Transaction;
 import ozu.banking.model.WithdrawTransaction;
@@ -11,6 +14,9 @@ import ozu.banking.model.WithdrawTransaction;
 public class TestTransactions {
 
 	public static void main(String[] args) {
+		BankAccount acc=new BankAccount("Yasemin");
+		ContactInfo info=new ContactInfo("05324445566","kadikoy");
+		acc.setContactInfo(info);
 	
 		Transaction eft = new EFTTransaction(200.0, "aaa", 0.04);
 		Transaction deposit = new DepositTransaction(10000.0);
@@ -24,10 +30,14 @@ public class TestTransactions {
 		list[2]=with;
 		list[3]=check;
 		list[4]=s;
-		printTrx(list);
+		//printTrx(list);
 	   
+		OwnerChange oc=new OwnerChange("Arda");
+		acc.post(oc);
 		
-		BankAccount acc=new BankAccount("Yasemin");
+		ContactInfoChange newInfo=new ContactInfoChange("05449998877", "MALTEPE");
+		acc.post(newInfo);
+		
 		acc.post(deposit);
 		
 		System.out.println(acc.getBalance());

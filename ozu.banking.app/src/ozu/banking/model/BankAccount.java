@@ -1,11 +1,18 @@
 package ozu.banking.model;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class BankAccount {
+
+	
 	private String owner;
 	private int accountNumber;// = 123;
 	private double balance;// = 100;
+	private ContactInfo contactInfo;
+	
+	private ArrayList<Object> transactions=new ArrayList<>();
+	
 
 	public BankAccount() {
 		this.accountNumber = (int) (Math.random() * 9000000) + 1000000;
@@ -89,9 +96,27 @@ public class BankAccount {
 		return Objects.hash(accountNumber);
 	}
 
-	public void post(Transaction t) {
+	public void post(BankAccountUpdater t) {
 		t.updateAccount(this);
+		transactions.add(t);
 
+	}
+	
+
+	public ContactInfo getContactInfo() {
+		return contactInfo;
+	}
+
+	public void setContactInfo(ContactInfo contactInfo) {
+		this.contactInfo = contactInfo;
+	}
+
+	public ArrayList<Object> getTransactions() {
+		return transactions;
+	}
+
+	public void setTransactions(ArrayList<Object> transactions) {
+		this.transactions = transactions;
 	}
 
 }
