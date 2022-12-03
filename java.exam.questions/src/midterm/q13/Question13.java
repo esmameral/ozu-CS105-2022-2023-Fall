@@ -3,7 +3,7 @@ package midterm.q13;
 public class Question13 {
 
 	public static void main(String[] args) {
-		int[][] arr = {{ 0,0,0 }, { 1, 2, 3, 4, 5 }, { 0,0,0,0,0 },{ 11, 3, 8, 9, 12 }, { 22, 33, 44, 1, 98 } };
+		int[][] arr = { { 2, 1, 0 }, { 1, 3, 2 }, { 0, 0, 0 }, { 4, 5, 6 } };
 		int zeroRowCount = 0;
 		for (int i = 0; i < arr.length; i++) {
 			boolean isAllZero = true;
@@ -17,6 +17,5 @@ public class Question13 {
 				zeroRowCount++;
 		}
 		System.out.println(zeroRowCount);
-	}
-
+	}	
 }
