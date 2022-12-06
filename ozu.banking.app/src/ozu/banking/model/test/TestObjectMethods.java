@@ -1,7 +1,6 @@
 package ozu.banking.model.test;
 
 import ozu.banking.model.BankAccount;
-import ozu.banking.model.Transaction;
 
 public class TestObjectMethods {
 
