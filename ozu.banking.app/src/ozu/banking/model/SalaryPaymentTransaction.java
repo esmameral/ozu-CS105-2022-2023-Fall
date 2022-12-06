@@ -4,7 +4,7 @@ public class SalaryPaymentTransaction extends DepositTransaction {
 
 	
 
-	public SalaryPaymentTransaction(double d) {
+	public SalaryPaymentTransaction(double d) throws NegativeTransactionAmountException {
 		super(d);
 	}
 

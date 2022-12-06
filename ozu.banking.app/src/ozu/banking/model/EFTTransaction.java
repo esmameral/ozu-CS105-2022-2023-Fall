@@ -4,7 +4,7 @@ public class EFTTransaction extends WithdrawTransaction {
 	private String receiverIBAN;
 	private double comRate;
 
-	public EFTTransaction(double balance, String iban, double rate) {
+	public EFTTransaction(double balance, String iban, double rate) throws NegativeTransactionAmountException {
 		super(balance);
 		this.setReceiverIBAN(iban);
 		this.comRate=rate;	
@@ -43,7 +43,7 @@ public class EFTTransaction extends WithdrawTransaction {
 
 
 	@Override
-	public void updateAccount(BankAccount acc) {
+	public void updateAccount(BankAccount acc) throws InsufficientBalanceException {
 		
 		acc.decreaseBalance(getAmount()+getAmount()*comRate);
 		

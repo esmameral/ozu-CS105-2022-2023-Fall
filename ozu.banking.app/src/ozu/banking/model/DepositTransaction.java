@@ -2,7 +2,7 @@ package ozu.banking.model;
 
 public class DepositTransaction extends Transaction {
 
-	public DepositTransaction(double amount) {
+	public DepositTransaction(double amount) throws NegativeTransactionAmountException {
 		super(amount);
 	}
 

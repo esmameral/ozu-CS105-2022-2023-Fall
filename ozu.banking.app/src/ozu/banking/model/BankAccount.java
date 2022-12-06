@@ -5,14 +5,12 @@ import java.util.Objects;
 
 public class BankAccount {
 
-	
 	private String owner;
 	private int accountNumber;// = 123;
 	private double balance;// = 100;
 	private ContactInfo contactInfo;
-	
-	private ArrayList<Object> transactions=new ArrayList<>();
-	
+
+	private ArrayList<Transaction> transactions = new ArrayList<>();
 
 	public BankAccount() {
 		this.accountNumber = (int) (Math.random() * 9000000) + 1000000;
@@ -73,11 +71,12 @@ public class BankAccount {
 		this.balance = balance;
 	}
 
-	public void decreaseBalance(double amount) {
+	public void decreaseBalance(double amount) throws InsufficientBalanceException {
 		if (amount <= balance) {
 			balance = balance - amount;
 		} else {
 			System.out.println("Insufficient balance !!!");
+			throw new InsufficientBalanceException("Insufficient balance !!!. Your balance is:" + getBalance());
 		}
 
 		// Others ways:
@@ -96,12 +95,12 @@ public class BankAccount {
 		return Objects.hash(accountNumber);
 	}
 
-	public void post(BankAccountUpdater t) {
+	public void post(BankAccountUpdater t) throws InsufficientBalanceException {
 		t.updateAccount(this);
-		transactions.add(t);
+		if (t instanceof Transaction)
+			transactions.add((Transaction) t);
 
 	}
-	
 
 	public ContactInfo getContactInfo() {
 		return contactInfo;
@@ -111,12 +110,27 @@ public class BankAccount {
 		this.contactInfo = contactInfo;
 	}
 
-	public ArrayList<Object> getTransactions() {
+	public ArrayList<Transaction> getTransactions() {
 		return transactions;
 	}
 
-	public void setTransactions(ArrayList<Object> transactions) {
+	public void setTransactions(ArrayList<Transaction> transactions) {
 		this.transactions = transactions;
+	}
+
+	public double getAvgDepositTrxAmount() {
+		int count = 0;
+		double total = 0;
+		for (Transaction transaction : transactions) {
+			if (transaction instanceof DepositTransaction) {
+				total += transaction.getAmount();
+				count++;
+			}
+		}
+		if (count > 0)
+			return total / count;
+		else
+			return 0;
 	}
 
 }

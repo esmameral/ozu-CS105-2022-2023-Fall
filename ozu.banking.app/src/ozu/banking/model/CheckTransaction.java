@@ -5,7 +5,7 @@ public class CheckTransaction extends WithdrawTransaction {
 	
 	private String checkNumber;
 
-	public CheckTransaction(double amount, String checkNumber) {
+	public CheckTransaction(double amount, String checkNumber) throws NegativeTransactionAmountException {
 		super(amount);
 		this.checkNumber=checkNumber;
 		

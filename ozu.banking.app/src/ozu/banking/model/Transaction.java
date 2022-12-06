@@ -8,11 +8,13 @@ public abstract class Transaction implements BankAccountUpdater{
 	private double amount;
 	private String placeOfOperation;
 	
-	public abstract void updateAccount(BankAccount acc);
+	public abstract void updateAccount(BankAccount acc) throws InsufficientBalanceException;
 	
 	
-	public Transaction(double amount) {
+	public Transaction(double amount) throws NegativeTransactionAmountException {
 		this();
+		if(amount<0)
+			throw new NegativeTransactionAmountException("Amount must be positive!!");
 		this.amount = amount;
 	}
 	public Transaction() {
