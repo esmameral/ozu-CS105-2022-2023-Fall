@@ -133,4 +133,20 @@ public class BankAccount {
 			return 0;
 	}
 
+	public Transaction findMaxDepositTransaction() {
+		Transaction maxTrx=null;
+		double maxAmount=0;
+		for (Transaction transaction : transactions) {
+			if (transaction instanceof DepositTransaction) {
+				if(transaction.getAmount()>maxAmount) {
+					maxAmount=transaction.getAmount();
+					maxTrx=transaction;
+				}
+			}
+		}
+		return maxTrx;
+	}
+	
+	
+
 }

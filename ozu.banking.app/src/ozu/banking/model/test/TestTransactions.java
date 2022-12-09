@@ -41,19 +41,18 @@ public class TestTransactions {
 			
 			ContactInfoChange newInfo=new ContactInfoChange("05449998877", "MALTEPE");
 			acc.post(newInfo);
-			
 			acc.post(deposit);
 			acc.post(deposit2);
 			
-			System.out.println(acc.getBalance());
 			acc.post(eft);
-			
-			System.out.println(acc.getBalance());
-			
 			acc.post(with);
-			System.out.println(acc.getBalance());
+			acc.post(s);
+			acc.post(check);
 			
 			System.out.println("AVG:"+acc.getAvgDepositTrxAmount());
+			Transaction maxTrx=acc.findMaxDepositTransaction();
+			System.out.println("Max:"+maxTrx.getId()+"-"+maxTrx.getAmount());
+			
 		} catch (InsufficientBalanceException e) {
 			e.printStackTrace();
 		}catch (NegativeTransactionAmountException e2) {
