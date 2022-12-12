@@ -3,7 +3,6 @@ package week11.exceptions;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class TestException {

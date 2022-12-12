@@ -1,6 +1,5 @@
 package week10.collection;
 
-import java.util.Comparator;
 import java.util.Objects;
 
 public class Person implements Comparable<Person>{

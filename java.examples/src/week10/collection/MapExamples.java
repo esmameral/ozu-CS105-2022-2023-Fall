@@ -20,7 +20,7 @@ public class MapExamples {
 		//System.out.println(list1.get(3));
 		
 		for (Map.Entry<Integer, Person> entry : list1.entrySet()) {
-			Integer key = entry.getKey();
+			
 			Person val = entry.getValue();
 			System.out.println(val);
 		}
