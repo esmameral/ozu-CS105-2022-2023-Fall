@@ -146,6 +146,11 @@ public class BankAccount {
 		}
 		return maxTrx;
 	}
+
+	@Override
+	public String toString() {
+		return "BankAccount [" + owner + ", " + balance + "]";
+	}
 	
 	
 
