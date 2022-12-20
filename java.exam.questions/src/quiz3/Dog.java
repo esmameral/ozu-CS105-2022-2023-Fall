@@ -32,15 +32,14 @@ public class Dog
 
 	@Override
 	public boolean equals(Object obj) {
-//		if (this == obj)
-//			return true;
-//		if (obj == null)
-//			return false;
-//		if (getClass() != obj.getClass())
-//			return false;
-//		Dog other = (Dog) obj;
-//		return getName().equals(other.name);
-		return this.equals(obj);
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Dog other = (Dog) obj;
+		return getName().equals(other.name);
 	}
 	public static void main(String[] args)
     {
