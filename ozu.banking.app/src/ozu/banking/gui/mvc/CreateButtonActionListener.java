@@ -5,15 +5,15 @@ import java.awt.event.ActionListener;
 
 import ozu.banking.model.BankAccount;
 
-public class CreateButtonActionLister implements ActionListener {
+public class CreateButtonActionListener implements ActionListener {
 	BankAccount acc;
-	BankAccountView view;
+	View view;
 
-	public CreateButtonActionLister() {
+	public CreateButtonActionListener() {
 		super();
 	}
 	
-	public CreateButtonActionLister(BankAccount acc, BankAccountView view) {
+	public CreateButtonActionListener(BankAccount acc, View view) {
 		super();
 		this.acc = acc;
 		this.view=view;
@@ -26,7 +26,7 @@ public class CreateButtonActionLister implements ActionListener {
 		acc=new BankAccount(view.getTxtName().getText());
 		String balanceStr=view.getTxtBalance().getText();
 		System.out.println("....My Account....:"+acc.getOwner());
-		
+		view.getLblTrxInfo().setText(balanceStr);
 
 	}
 

@@ -2,7 +2,7 @@ package ozu.banking.gui.mvc;
 
 import ozu.banking.model.BankAccount;
 
-public class BankAccountModel {
+public class Model {
 	
 	private BankAccount account;
 

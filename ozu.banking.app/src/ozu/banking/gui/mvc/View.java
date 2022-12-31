@@ -12,7 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-public class BankAccountView extends JFrame{
+public class View extends JFrame{
 	private Container c;
 	private JLabel title;
 	private JLabel lblName;
@@ -30,9 +30,9 @@ public class BankAccountView extends JFrame{
 	private JTextArea txtLog;
 	private JLabel lblResponse;
 	private JComboBox<String> comboTrxType;
+	private JLabel lblTrxInfo;
 	
-	
-	public BankAccountView() {
+	public View() {
 		setTitle("Account Form");
 		setBounds(300, 90, 900, 600);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -126,6 +126,10 @@ public class BankAccountView extends JFrame{
 		lblResponse.setSize(500, 25);
 		lblResponse.setLocation(100, 500);
 		c.add(lblResponse);
+		
+		lblTrxInfo = new JLabel(".....");
+		lblTrxInfo.setBounds(100, 308, 184, 30);
+		c.add(lblTrxInfo);
 		setVisible(true);
 	}
 
@@ -152,6 +156,126 @@ public class BankAccountView extends JFrame{
 
 	public void setTxtBalance(JTextField txtBalance) {
 		this.txtBalance = txtBalance;
+	}
+
+
+	public Container getC() {
+		return c;
+	}
+
+
+	public void setC(Container c) {
+		this.c = c;
+	}
+
+
+	
+
+
+	
+
+	public JLabel getLblName() {
+		return lblName;
+	}
+
+
+	public void setLblName(JLabel lblName) {
+		this.lblName = lblName;
+	}
+
+
+	public JLabel getLblBalance() {
+		return lblBalance;
+	}
+
+
+	public void setLblBalance(JLabel lblBalance) {
+		this.lblBalance = lblBalance;
+	}
+
+
+	public JLabel getLblTrxAmount() {
+		return lblTrxAmount;
+	}
+
+
+	public void setLblTrxAmount(JLabel lblTrxAmount) {
+		this.lblTrxAmount = lblTrxAmount;
+	}
+
+
+	public JTextField getTxtTrxAmount() {
+		return txtTrxAmount;
+	}
+
+
+	public void setTxtTrxAmount(JTextField txtTrxAmount) {
+		this.txtTrxAmount = txtTrxAmount;
+	}
+
+
+	public JButton getBtnPost() {
+		return btnPost;
+	}
+
+
+	public void setBtnPost(JButton btnPost) {
+		this.btnPost = btnPost;
+	}
+
+
+	public JButton getBtnClear() {
+		return btnClear;
+	}
+
+
+	public void setBtnClear(JButton btnClear) {
+		this.btnClear = btnClear;
+	}
+
+
+	public JTextArea getTxtLog() {
+		return txtLog;
+	}
+
+
+	public void setTxtLog(JTextArea txtLog) {
+		this.txtLog = txtLog;
+	}
+
+
+	public JLabel getLblResponse() {
+		return lblResponse;
+	}
+
+
+	public void setLblResponse(JLabel lblResponse) {
+		this.lblResponse = lblResponse;
+	}
+
+
+	public JComboBox<String> getComboTrxType() {
+		return comboTrxType;
+	}
+
+
+	public void setComboTrxType(JComboBox<String> comboTrxType) {
+		this.comboTrxType = comboTrxType;
+	}
+
+
+	public void setTxtName(JTextField txtName) {
+		this.txtName = txtName;
+	}
+
+
+	public JLabel getLblTrxInfo() {
+		return lblTrxInfo;
+	}
+
+
+	public void setLblTrxInfo(JLabel lblTrxInfo) {
+		this.lblTrxInfo = lblTrxInfo;
 	}
 
 

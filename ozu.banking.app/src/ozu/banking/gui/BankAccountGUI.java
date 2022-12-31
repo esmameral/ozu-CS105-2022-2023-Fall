@@ -16,6 +16,7 @@ import ozu.banking.model.BankAccount;
 import ozu.banking.model.DepositTransaction;
 import ozu.banking.model.Transaction;
 import ozu.banking.model.WithdrawTransaction;
+import javax.swing.JTable;
 
 public class BankAccountGUI extends JFrame implements ActionListener {
 
@@ -37,8 +38,10 @@ public class BankAccountGUI extends JFrame implements ActionListener {
 	private JTextArea txtLog;
 	private JLabel lblResponse;
 	private JComboBox<String> comboTrxType;
+	private JLabel lblTrxInfo;
 	
 	private BankAccount account;
+	private JTable table;
 
 	public BankAccountGUI() {
 		setTitle("Account Form");
@@ -134,6 +137,15 @@ public class BankAccountGUI extends JFrame implements ActionListener {
 		lblResponse.setSize(500, 25);
 		lblResponse.setLocation(100, 500);
 		c.add(lblResponse);
+		
+		lblTrxInfo = new JLabel("Transaction Information");
+		lblTrxInfo.setBounds(100, 308, 184, 30);
+		getContentPane().add(lblTrxInfo);
+		
+		table = new JTable();
+		table.setBounds(30, 40, 200, 300);
+		
+		getContentPane().add(table);
 		setVisible(true);
 	}
 
@@ -157,26 +169,28 @@ public class BankAccountGUI extends JFrame implements ActionListener {
 			try {
 				if(comboTrxType.getSelectedItem().equals("Withdraw")){
 					trx=new WithdrawTransaction(Double.parseDouble(txtTrxAmount.getText()));
-
+					
 				}else {
 					trx=new DepositTransaction(Double.parseDouble(txtTrxAmount.getText()));
 
 				}
-				
+				lblTrxInfo.setText(trx.toString());
 				account.post(trx);
 				txtLog.setText(txtLog.getText()+"\n"+account.toString());
+				txtLog.setText(txtLog.getText()+"\n"+trx.toString());
+				txtTrxAmount.setText("");
+				comboTrxType.setSelectedItem("Deposit");
+				
 			} catch (Exception e1) {
-				lblResponse.setText("Please enter a valid positive double value!!");
-				e1.printStackTrace();
+				lblResponse.setText(e1.getMessage());
 			} 
 			
 		}
 		else if (e.getSource() == btnClear) {
-			String def = "";
-			txtName.setText(def);
-			txtBalance.setText(def);
-			lblResponse.setText(def);
-			txtLog.setText(def);
+			txtName.setText("");
+			txtBalance.setText("");
+			lblResponse.setText("");
+			//txtLog.setText("");
 
 		}
 
@@ -186,3 +200,5 @@ public class BankAccountGUI extends JFrame implements ActionListener {
 		new BankAccountGUI();
 	}
 }
+
+
